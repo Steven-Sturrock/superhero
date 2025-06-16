@@ -3,6 +3,7 @@
 
 '''
 V0.0.1 - 17.06.25: Initial version, non-functional, layout complete
+V0.0.2 - 17.06.25: Removed row weighting to fix scaling issues. 
 '''
 
 from tkinter import *
@@ -13,13 +14,11 @@ class GUI:
         #Create window
         self.master = Tk()
         self.master.title("Superhero Name Generator")
-        self.master.grid_rowconfigure(0, weight=1)
         self.master.grid_columnconfigure(0, weight=1)       
         
         #Create container
         self.container = Frame(self.master)
         self.container.grid(row=0, column=0, sticky="nsew")
-        self.container.grid_rowconfigure(0, weight=1)
         self.container.grid_columnconfigure(0, weight=1)     
         
         #Main heading
