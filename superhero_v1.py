@@ -4,6 +4,7 @@
 '''
 V0.0.1 - 17.06.25: Initial version, non-functional, layout complete
 V0.0.2 - 17.06.25: Removed row weighting to fix scaling issues. 
+V1.0.0 - 18.06.25: Functional program
 '''
 
 from tkinter import *
@@ -31,13 +32,13 @@ class GUI:
         
         #Adjective options
         self.adj_var = StringVar()
-        self.opt1 = ttk.Radiobutton(self.master, text="Happy", variable=self.adj_var)
+        self.opt1 = ttk.Radiobutton(self.master, text="Happy", value="happy", variable=self.adj_var)
         self.opt1.grid(row=2, column=0, sticky="NSEW", padx=30)
-        self.opt2 = ttk.Radiobutton(self.master, text="Awesome", variable=self.adj_var)
+        self.opt2 = ttk.Radiobutton(self.master, text="Awesome", value="awesome",variable=self.adj_var)
         self.opt2.grid(row=3, column=0, sticky="NSEW", padx=30)
-        self.opt3 = ttk.Radiobutton(self.master, text="Outgoing", variable=self.adj_var)
+        self.opt3 = ttk.Radiobutton(self.master, text="Outgoing", value="outgoing", variable=self.adj_var)
         self.opt3.grid(row=4, column=0, sticky="NSEW", padx=30)
-        self.opt4 = ttk.Radiobutton(self.master, text="Funky", variable=self.adj_var)
+        self.opt4 = ttk.Radiobutton(self.master, text="Funky", value="funky", variable=self.adj_var)
         self.opt4.grid(row=5, column=0, sticky="NSEW", padx=30)
         
         #Colour
@@ -57,7 +58,7 @@ class GUI:
         self.animal_combobox.grid(row=9, column=0, sticky="NSEW", padx=30, pady=10)
         
         #Go command
-        self.go_button = Button(self.master, text="GO!", font="Raleway 12 bold")
+        self.go_button = Button(self.master, text="GO!", font="Raleway 12 bold", command=lambda: self.go())
         self.go_button.grid(row=10, column=0, sticky="NSEW", padx=50, pady=10)
         
         #Output
@@ -65,7 +66,11 @@ class GUI:
         self.output.grid(row=11, column=0, sticky="NSEW", padx=20, pady=10)
         
     def run(self):
-        self.master.mainloop()        
+        self.master.mainloop()    
+        
+    def go(self):
+        output = f"You are the {self.adj_var.get().title()} {self.cbox.get().title()} {self.chosen_animal.get().title()}!"
+        self.output.configure(text=output)
         
                 
         
