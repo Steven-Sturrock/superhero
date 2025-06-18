@@ -5,6 +5,7 @@
 V0.0.1 - 17.06.25: Initial version, non-functional, layout complete
 V0.0.2 - 17.06.25: Removed row weighting to fix scaling issues. 
 V1.0.0 - 18.06.25: Functional program
+V1.0.1 - 18.06.25: Fixed alignment issues
 '''
 
 from tkinter import *
@@ -50,10 +51,10 @@ class GUI:
         #Animal
         self.col_heading = Label(self.master, text="Pick an animal", font="Raleway 12 bold")
         self.col_heading.grid(row=8, column=0, sticky="NSEW")  
-        self.animals = ["Takahe", "Kereru", "Ruru", "Karearea"]
+        self.animals = ["Takahe", "Kereru", "Ruru", "Karearea", "Alcoholic"]
         self.chosen_animal = StringVar()
         self.chosen_animal.set("")
-        self.animal_combobox = ttk.Combobox(self.master, textvariable=self.chosen_animal, state="readonly")
+        self.animal_combobox = ttk.Combobox(self.master, textvariable=self.chosen_animal, state="readonly", justify=CENTER)
         self.animal_combobox['values'] = self.animals
         self.animal_combobox.grid(row=9, column=0, sticky="NSEW", padx=30, pady=10)
         
